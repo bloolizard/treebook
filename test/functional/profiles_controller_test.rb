@@ -13,4 +13,10 @@ class ProfilesControllerTest < ActionController::TestCase
 
   end
 
+  test "that variables are assigned on successful profile viewing" do
+  	get :show, id: users(:jason).profile_name
+  	assert assigns(:user)
+  	assert_not_empty assigns(:statuses)
+  end
+
 end
